@@ -22,6 +22,7 @@ Tableau is a powerful data visualization and business intelligence (BI) software
 - [💻 Desktop Installation](desktop-installation.md)
 - [🔗 Connecting Tableau to Data Sources](connecting-tableau-to-data-sources.md)
 - [📊 Data Models: Star Schema and Snowflake](data-models-star-snowflake.md)
+- [🔗 Joins in Data Models](joins-in-data-models.md)
 
 ---
 

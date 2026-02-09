@@ -118,4 +118,7 @@ Tableau works well with both star and snowflake schemas. When connecting to data
 - Consider using extracts for better performance with complex schemas
 - Leverage Tableau's relationship model (from version 2020.2+) for flexible data modeling
 
+## Related Topics
+- [🔗 Joins in Data Models](joins-in-data-models.md) - Detailed explanation of joins in star and snowflake schemas
+
 🔗 [Tableau Data Modeling Best Practices](https://help.tableau.com/current/pro/desktop/en-us/datasource_prepare.htm)
