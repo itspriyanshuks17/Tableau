@@ -21,3 +21,76 @@
 | **Data Privacy**| Public Sharing| Private Handling|
 | **Features**    | Basic         | Advanced       |
 | **Storage**     | Online Only   | Local/Server   |
+
+## Feature Comparison Diagram
+
+```mermaid
+graph TD
+    A[Tableau Products] --> B[Tableau Public]
+    A --> C[Tableau Desktop]
+    
+    B --> D[Free]
+    B --> E[Public Sharing]
+    B --> F[Basic Features]
+    B --> G[Online Storage]
+    B --> H[Learning/Portfolio]
+    
+    C --> I[Paid License]
+    C --> J[Private Data]
+    C --> K[Advanced Features]
+    C --> L[Local/Server Storage]
+    C --> M[Professional Use]
+    
+    style B fill:#e8f5e8
+    style C fill:#e3f2fd
+```
+
+## Data Source Connectivity
+
+```mermaid
+graph TD
+    A[Data Sources] --> B[Tableau Public]
+    A --> C[Tableau Desktop]
+    
+    B --> D[Public Data Only]
+    D --> E[Web Data Connectors]
+    D --> F[Public APIs]
+    D --> G[Sample Datasets]
+    
+    C --> H[All Data Sources]
+    H --> I[Databases]
+    H --> J[Spreadsheets]
+    H --> K[Cloud Services]
+    H --> L[Big Data]
+    H --> M[Private APIs]
+    
+    style B fill:#fff3e0
+    style C fill:#f3e5f5
+```
+
+## Use Case Flowchart
+
+```mermaid
+flowchart TD
+    A[Choose Tableau Version] --> B{Primary Use Case?}
+    
+    B -->|Learning & Portfolio| C[Tableau Public]
+    B -->|Professional Analysis| D[Tableau Desktop]
+    B -->|Enterprise Deployment| E[Tableau Server/Online]
+    
+    C --> F[Free Access]
+    C --> G[Public Sharing]
+    C --> H[Basic Visualizations]
+    
+    D --> I[Paid License Required]
+    D --> J[Private Data Access]
+    D --> K[Advanced Analytics]
+    
+    E --> L[Server Infrastructure]
+    E --> M[Team Collaboration]
+    E --> N[Enterprise Security]
+    
+    style C fill:#c8e6c9
+    style D fill:#bbdefb
+    style E fill:#d1c4e9
+```
