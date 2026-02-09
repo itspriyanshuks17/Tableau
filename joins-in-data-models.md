@@ -38,6 +38,69 @@ SELECT * FROM fact_table f
 FULL OUTER JOIN dimension_table d ON f.dimension_id = d.id
 ```
 
+## Join Types Visual Guide
+
+```mermaid
+graph TD
+    A[Join Types] --> B[Inner Join]
+    A --> C[Left Join]
+    A --> D[Right Join]
+    A --> E[Full Outer Join]
+    
+    B --> F[Only Matching Rows]
+    B --> G[Intersection of Tables]
+    
+    C --> H[All Left Rows]
+    C --> I[Matching Right Rows]
+    C --> J[NULL for No Match]
+    
+    D --> K[All Right Rows]
+    D --> L[Matching Left Rows]
+    D --> M[NULL for No Match]
+    
+    E --> N[All Rows from Both]
+    E --> O[NULL Where No Match]
+    
+    style B fill:#e8f5e8
+    style C fill:#bbdefb
+    style D fill:#ffcdd2
+    style E fill:#f3e5f5
+```
+
+## Join Venn Diagram Representation
+
+```mermaid
+graph TD
+    subgraph "Inner Join"
+        I1[Table A ∩ Table B]
+    end
+    
+    subgraph "Left Join"  
+        L1[Table A]
+        L2[Table A ∩ Table B]
+    end
+    
+    subgraph "Right Join"
+        R1[Table B]
+        R2[Table A ∩ Table B]
+    end
+    
+    subgraph "Full Outer Join"
+        F1[Table A]
+        F2[Table B]
+        F3[Table A ∩ Table B]
+    end
+    
+    style I1 fill:#e8f5e8
+    style L1 fill:#bbdefb
+    style L2 fill:#e8f5e8
+    style R1 fill:#ffcdd2
+    style R2 fill:#e8f5e8
+    style F1 fill:#bbdefb
+    style F2 fill:#ffcdd2
+    style F3 fill:#e8f5e8
+```
+
 ## Joins in Star Schema
 
 In a star schema, joins are straightforward since the fact table connects directly to each dimension table using foreign keys. This results in simple, fast joins.
@@ -201,6 +264,53 @@ INNER JOIN STORE st ON s.StoreID = st.StoreID
 - **Materialized Views**: Pre-compute complex joins for frequently used queries
 - **Database Views**: Create views to simplify complex join patterns
 
+## Performance Comparison Chart
+
+```mermaid
+bar-beta
+    title Join Performance Comparison
+    x-axis [Star Schema, Snowflake Schema]
+    y-axis Performance (higher is better)
+    bar [95, 70]
+    bar [90, 60]
+    bar [85, 50]
+```
+
+## Optimization Strategy Flowchart
+
+```mermaid
+flowchart TD
+    A[Query Performance Issue] --> B{Join Type?}
+    
+    B -->|Star Schema| C[Simple Optimization]
+    B -->|Snowflake Schema| D[Complex Optimization]
+    
+    C --> E[Add Indexes]
+    C --> F[Use Inner Joins]
+    C --> G[Create Aggregations]
+    
+    D --> H[Denormalize Data]
+    D --> I[Create Database Views]
+    D --> J[Use Materialized Views]
+    D --> K[Implement Summary Tables]
+    
+    E --> L[Monitor Performance]
+    F --> L
+    G --> L
+    H --> L
+    I --> L
+    J --> L
+    K --> L
+    
+    L --> M{Performance Improved?}
+    M -->|Yes| N[Optimization Complete]
+    M -->|No| O[Review Query Structure]
+    
+    O --> B
+    
+    style N fill:#e8f5e8
+```
+
 ## Tableau Join Configuration
 
 When setting up joins in Tableau's Data Source editor:
@@ -229,6 +339,72 @@ When setting up joins in Tableau's Data Source editor:
 - **Custom SQL**: Use custom SQL when joins become too complex for the visual interface
 - **Performance Testing**: Test query performance with different join configurations
 
+## Tableau Join Setup Workflow
+
+```mermaid
+flowchart TD
+    A[Open Data Source] --> B[Connect to Database]
+    B --> C{Data Model Type?}
+    
+    C -->|Star Schema| D[Connect Fact Table]
+    C -->|Snowflake Schema| E[Connect Base Tables]
+    
+    D --> F[Add Dimension Tables]
+    E --> G[Build Hierarchy Joins]
+    
+    F --> H[Set Join Types]
+    G --> H
+    
+    H --> I{Join Type?}
+    I -->|Inner| J[Default Choice]
+    I -->|Left| K[Include All Left]
+    I -->|Right| L[Include All Right]
+    I -->|Full| M[Include All Both]
+    
+    J --> N[Verify Relationships]
+    K --> N
+    L --> N
+    M --> N
+    
+    N --> O{Valid Joins?}
+    O -->|Yes| P[Create Extract/Use Live]
+    O -->|No| Q[Fix Join Conditions]
+    
+    Q --> H
+    P --> R[Build Visualizations]
+    
+    style R fill:#e8f5e8
+```
+
+## Join Type Decision Tree
+
+```mermaid
+flowchart TD
+    A[Choose Join Type] --> B{Data Requirements?}
+    
+    B -->|Only matching records| C[Inner Join]
+    B -->|All records from primary table| D{Primary Table?}
+    B -->|All records from both tables| E[Full Outer Join]
+    
+    D -->|Left side primary| F[Left Join]
+    D -->|Right side primary| G[Right Join]
+    
+    C --> H[Most Common]
+    F --> I[Common for dimensions]
+    G --> J[Less common]
+    E --> K[Rare, use carefully]
+    
+    H --> L[Configure in Tableau]
+    I --> L
+    J --> L
+    K --> L
+    
+    style C fill:#e8f5e8
+    style F fill:#bbdefb
+    style G fill:#ffcdd2
+    style E fill:#f3e5f5
+```
+
 ## Common Join Issues and Solutions
 
 ### 1. Cartesian Products
@@ -246,6 +422,94 @@ When setting up joins in Tableau's Data Source editor:
 ### 4. Data Type Mismatches
 **Problem**: Joining on incompatible data types
 **Solution**: Ensure consistent data types for join keys
+
+## Join Issues Troubleshooting Guide
+
+```mermaid
+flowchart TD
+    A[Join Problem Detected] --> B{Problem Type?}
+    
+    B -->|Unexpected Results| C{Check for Cartesian Product}
+    B -->|NULL Values| D{Check Join Types}
+    B -->|Slow Performance| E{Check Join Complexity}
+    B -->|No Data Returned| F{Check Join Conditions}
+    
+    C -->|Yes| G[Add Join Conditions]
+    C -->|No| H[Review Query Logic]
+    
+    D -->|Left Join Issues| I[Use COALESCE Function]
+    D -->|Data Quality| J[Clean NULL Values]
+    
+    E -->|Too Many Joins| K[Create Database Views]
+    E -->|Missing Indexes| L[Add Database Indexes]
+    
+    F -->|Wrong Join Type| M[Change to Outer Join]
+    F -->|Data Mismatch| N[Fix Data Types]
+    
+    G --> O[Problem Solved]
+    H --> O
+    I --> O
+    J --> O
+    K --> O
+    L --> O
+    M --> O
+    N --> O
+    
+    style O fill:#e8f5e8
+```
+
+## Join Performance Impact Matrix
+
+```mermaid
+quadrantChart
+    title Join Performance Impact
+    x-axis Low Join Complexity --> High Join Complexity
+    y-axis Poor Performance --> Good Performance
+    quadrant-1 Good Performance + Low Complexity
+    quadrant-2 Poor Performance + Low Complexity
+    quadrant-3 Poor Performance + High Complexity
+    quadrant-4 Good Performance + High Complexity
+    Star Schema: [0.2, 0.8]
+    Snowflake Schema: [0.8, 0.3]
+    Optimized Query: [0.3, 0.9]
+    Complex Query: [0.9, 0.2]
+```
+
+## Data Integrity Check Flow
+
+```mermaid
+flowchart TD
+    A[Data Integrity Issue] --> B{Join Problem?}
+    
+    B -->|Yes| C{Data Type Match?}
+    B -->|No| D[Check Other Sources]
+    
+    C -->|No| E[Convert Data Types]
+    C -->|Yes| F{Check Key Relationships}
+    
+    F -->|Invalid| G[Fix Foreign Keys]
+    F -->|Valid| H{Check for Duplicates}
+    
+    H -->|Found| I[Remove Duplicates]
+    H -->|None| J{Check NULL Handling}
+    
+    J -->|Issue| K[Implement NULL Handling]
+    J -->|OK| L[Integrity Verified]
+    
+    E --> M[Test Join Results]
+    G --> M
+    I --> M
+    K --> M
+    
+    M --> N{Results Correct?}
+    N -->|Yes| L
+    N -->|No| O[Review Join Logic]
+    
+    O --> B
+    D --> P[Non-Join Issue]
+    
+    style L fill:#e8f5e8
+```
 
 🔗 [Tableau Joins Documentation](https://help.tableau.com/current/pro/desktop/en-us/joining_tables.htm)
 🔗 [SQL Join Best Practices](https://www.sqlshack.com/sql-joins-explained/)
