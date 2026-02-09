@@ -132,6 +132,27 @@ graph TD
     style A fill:#ffebee
 ```
 
+### 📊 Data Types in Tableau
+[📖 Read full notes](data-types-in-tableau.md)
+
+**Data Type Categories:**
+```mermaid
+graph TD
+    A[Data Types] --> B[Text/String]
+    A --> C[Numeric]
+    A --> D[Temporal]
+    A --> E[Logical]
+    A --> F[Spatial]
+    
+    B --> G[Abc]
+    C --> H[#123]
+    D --> I[📅]
+    E --> J[✓/✗]
+    F --> K[🌍]
+    
+    style A fill:#e3f2fd
+```
+
 ---
 
 💡 **Tip**: Provide more topics to expand this guide! Contributions welcome.
