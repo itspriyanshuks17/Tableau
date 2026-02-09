@@ -9,6 +9,11 @@ Welcome to your personal Tableau learning repository! This README contains struc
   - [Tableau Public and Desktop](#tableau-public-and-desktop)
   - [Desktop Installation](#desktop-installation)
   - [Connecting Tableau to Data Sources](#connecting-tableau-to-data-sources)
+  - [Data Models: Star Schema and Snowflake](#data-models-star-schema-and-snowflake)
+  - [Joins in Data Models](#joins-in-data-models)
+  - [Data Types in Tableau](#data-types-in-tableau)
+  - [Measures and Dimensions in Tableau](#measures-and-dimensions-in-tableau)
+  - [Charts in Tableau](#charts-in-tableau)
 
 ## Overview
 Tableau is a powerful data visualization and business intelligence (BI) software tool that allows users to connect to various data sources, create interactive dashboards, and generate insightful reports without requiring extensive coding skills. It is widely used for data analysis, exploration, and sharing visualizations to support decision-making in organizations.
@@ -153,7 +158,7 @@ graph TD
     style A fill:#e3f2fd
 ```
 
-### 📏 Measures and Dimensions in Tableau
+### � Measures and Dimensions in Tableau
 [📖 Read full notes](measures-and-dimensions-in-tableau.md)
 
 **Field Classification:**
@@ -172,6 +177,29 @@ graph TD
     
     style B fill:#bbdefb
     style C fill:#c8e6c9
+```
+
+### 📈 Charts in Tableau
+[📖 Read full notes](charts-in-tableau.md)
+
+**Chart Selection Guide:**
+```mermaid
+flowchart TD
+    A[Choose Chart] --> B{Data Type?}
+    
+    B -->|Comparison| C[Bar Chart]
+    B -->|Trend| D[Line Chart]
+    B -->|Distribution| E[Histogram]
+    B -->|Relationship| F[Scatter Plot]
+    B -->|Composition| G[Pie Chart]
+    B -->|Geographic| H[Maps]
+    
+    C --> I[Selected]
+    D --> I
+    E --> I
+    F --> I
+    G --> I
+    H --> I
 ```
 
 ---
