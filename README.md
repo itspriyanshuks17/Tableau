@@ -17,12 +17,120 @@ Tableau is a powerful data visualization and business intelligence (BI) software
 
 ## Notes
 
-- [🚀 Advantages and Disadvantages](advantages-and-disadvantages.md)
-- [🆓 Tableau Public and Desktop](tableau-public-and-desktop.md)
-- [💻 Desktop Installation](desktop-installation.md)
-- [🔗 Connecting Tableau to Data Sources](connecting-tableau-to-data-sources.md)
-- [📊 Data Models: Star Schema and Snowflake](data-models-star-snowflake.md)
-- [🔗 Joins in Data Models](joins-in-data-models.md)
+### 🚀 Advantages and Disadvantages
+[📖 Read full notes](advantages-and-disadvantages.md)
+
+**Key Comparison:**
+```mermaid
+graph TD
+    A[Tableau] --> B[Advantages]
+    A --> C[Disadvantages]
+    
+    B --> D[User-Friendly]
+    B --> E[Data Connectivity]
+    B --> F[Real-Time Analysis]
+    
+    C --> G[Cost]
+    C --> H[Learning Curve]
+    C --> I[Performance Limits]
+    
+    style B fill:#e1f5fe
+    style C fill:#ffebee
+```
+
+### 🆓 Tableau Public and Desktop
+[📖 Read full notes](tableau-public-and-desktop.md)
+
+**Version Comparison:**
+```mermaid
+graph TD
+    A[Tableau Versions] --> B[Public - Free]
+    A --> C[Desktop - Paid]
+    
+    B --> D[Public Sharing]
+    B --> E[Basic Features]
+    B --> F[Learning Focus]
+    
+    C --> G[Private Data]
+    C --> H[Advanced Features]
+    C --> I[Professional Use]
+    
+    style B fill:#e8f5e8
+    style C fill:#e3f2fd
+```
+
+### 💻 Desktop Installation
+[📖 Read full notes](desktop-installation.md)
+
+**Installation Flow:**
+```mermaid
+flowchart TD
+    A[Download] --> B[Run Installer]
+    B --> C[Accept License]
+    C --> D[Enter License Key]
+    D --> E[Install Complete]
+    E --> F[Launch Tableau]
+    
+    style A fill:#e8f5e8
+    style F fill:#c8e6c9
+```
+
+### 🔗 Connecting Tableau to Data Sources
+[📖 Read full notes](connecting-tableau-to-data-sources.md)
+
+**Data Source Types:**
+```mermaid
+graph TD
+    A[Data Sources] --> B[Files]
+    A --> C[Databases]
+    A --> D[Cloud Services]
+    
+    B --> E[Excel/CSV]
+    C --> F[SQL/MySQL]
+    D --> G[Redshift/BigQuery]
+    
+    style A fill:#e3f2fd
+```
+
+### 📊 Data Models: Star Schema and Snowflake
+[📖 Read full notes](data-models-star-snowflake.md)
+
+**Schema Comparison:**
+```mermaid
+graph TD
+    A[Schemas] --> B[Star]
+    A --> C[Snowflake]
+    
+    B --> D[Simple]
+    B --> E[Direct Joins]
+    B --> F[Denormalized]
+    
+    C --> G[Complex]
+    C --> H[Multi-level Joins]
+    C --> I[Normalized]
+    
+    style B fill:#fff3e0
+    style C fill:#f3e5f5
+```
+
+### 🔗 Joins in Data Models
+[📖 Read full notes](joins-in-data-models.md)
+
+**Join Types:**
+```mermaid
+graph TD
+    A[Joins] --> B[Inner Join]
+    A --> C[Left Join]
+    A --> D[Right Join]
+    A --> E[Full Outer Join]
+    
+    B --> F[Matching Records]
+    C --> G[All Left + Matches]
+    D --> H[All Right + Matches]
+    E --> I[All Records]
+    
+    style A fill:#ffebee
+```
 
 ---
 
