@@ -4,6 +4,7 @@
 
 Data types in Tableau determine how data is interpreted, displayed, and can be used in calculations and visualizations. Understanding data types is crucial for effective data analysis and avoiding common pitfalls.
 
+![Data Types in Tableau](images/datatypes.png)
 ## Tableau Data Types
 
 ### 1. String (Text)
