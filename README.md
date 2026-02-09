@@ -153,6 +153,27 @@ graph TD
     style A fill:#e3f2fd
 ```
 
+### 📏 Measures and Dimensions in Tableau
+[📖 Read full notes](measures-and-dimensions-in-tableau.md)
+
+**Field Classification:**
+```mermaid
+graph TD
+    A[Fields] --> B[Dimensions]
+    A --> C[Measures]
+    
+    B --> D[Qualitative]
+    B --> E[Blue Pills]
+    B --> F[Grouping]
+    
+    C --> G[Quantitative]
+    C --> H[Green Pills]
+    C --> I[Aggregation]
+    
+    style B fill:#bbdefb
+    style C fill:#c8e6c9
+```
+
 ---
 
 💡 **Tip**: Provide more topics to expand this guide! Contributions welcome.
